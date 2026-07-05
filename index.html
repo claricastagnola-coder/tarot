@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tarot Canalizado</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="cielo"></div>
+
+  <header class="encabezado">
+    <h1>✦ Tarot Canalizado ✦</h1>
+    <p class="subtitulo">Una lectura íntima, tejida carta por carta para vos</p>
+  </header>
+
+  <button id="btn-historial-toggle" class="btn-flotante" hidden>Mis lecturas</button>
+
+  <aside id="panel-historial" class="panel-historial" hidden>
+    <div class="panel-historial-cabecera">
+      <h2>Lecturas anteriores</h2>
+      <button id="btn-cerrar-historial" class="btn-cerrar">✕</button>
+    </div>
+    <ul id="lista-historial"></ul>
+  </aside>
+
+  <main class="contenedor">
+
+    <!-- Paso 1: datos -->
+    <section id="paso-datos" class="paso paso-activo">
+      <h2>Empecemos por vos</h2>
+      <p class="ayuda">Necesito tu nombre y tu fecha de nacimiento para canalizar la lectura con tu energía.</p>
+      <form id="form-datos">
+        <label for="input-nombre">Nombre</label>
+        <input type="text" id="input-nombre" required placeholder="¿Cómo te llamás?" />
+
+        <label for="input-fecha">Fecha de nacimiento</label>
+        <input type="date" id="input-fecha" required />
+
+        <button type="submit">Continuar</button>
+      </form>
+    </section>
+
+    <!-- Paso 2: pregunta -->
+    <section id="paso-pregunta" class="paso">
+      <h2 id="saludo-pregunta">Contame, <span id="nombre-en-saludo"></span></h2>
+      <p class="ayuda">¿Qué pregunta o inquietud traés hoy? Cuanto más específica, más precisa va a ser la tirada que te proponga.</p>
+      <form id="form-pregunta">
+        <textarea id="input-pregunta" rows="4" required placeholder="Ej: Siento que mi relación de pareja está estancada, ¿qué necesito ver de esta situación?"></textarea>
+        <button type="submit">Pedir tirada sugerida</button>
+      </form>
+      <p id="cargando-tirada" class="cargando" hidden>La lectora está eligiendo la tirada indicada para vos…</p>
+    </section>
+
+    <!-- Paso 3: tirada y cartas -->
+    <section id="paso-tirada" class="paso">
+      <h2 id="titulo-tirada"></h2>
+      <p class="ayuda">Tirá físicamente las cartas en este orden y contame qué salió en cada posición.</p>
+      <form id="form-tirada">
+        <div id="posiciones-contenedor"></div>
+        <button type="submit">Interpretar mi lectura</button>
+      </form>
+    </section>
+
+    <!-- Paso 4: resultado -->
+    <section id="paso-resultado" class="paso">
+      <h2>Tu lectura</h2>
+      <p id="cargando-lectura" class="cargando" hidden>Canalizando la lectura…</p>
+      <div id="texto-resultado" class="texto-resultado"></div>
+      <div class="acciones-resultado">
+        <button id="btn-nueva-pregunta">Hacer otra pregunta</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal para ver una lectura del historial -->
+  <div id="modal-lectura" class="modal" hidden>
+    <div class="modal-contenido">
+      <button id="btn-cerrar-modal" class="btn-cerrar">✕</button>
+      <p class="modal-pregunta"></p>
+      <p class="modal-tirada"></p>
+      <div class="modal-texto"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
