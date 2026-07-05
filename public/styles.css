@@ -365,3 +365,6 @@ button:disabled {
   .encabezado h1 { font-size: 1.5rem; }
   .paso { padding: 1.4rem; }
 }
+.modal[hidden] {
+  display: none;
+}
