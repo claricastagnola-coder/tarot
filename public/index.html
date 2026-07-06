@@ -56,6 +56,14 @@
     <section id="paso-tirada" class="paso">
       <h2 id="titulo-tirada"></h2>
       <p class="ayuda">Tirá físicamente las cartas en este orden y contame qué salió en cada posición.</p>
+
+      <div class="foto-tirada">
+        <p class="ayuda-foto">¿Preferís sacarle una foto a tu tirada en vez de elegir carta por carta? Sacala con las cartas en orden, de izquierda a derecha.</p>
+        <input type="file" id="input-foto-tirada" accept="image/*" capture="environment" />
+        <button type="button" id="btn-identificar-foto" class="btn-secundario">Identificar cartas de la foto</button>
+        <p id="cargando-foto" class="cargando" hidden>Mirando tu tirada…</p>
+      </div>
+
       <form id="form-tirada">
         <div id="posiciones-contenedor"></div>
         <button type="submit">Interpretar mi lectura</button>
@@ -67,8 +75,37 @@
       <h2>Tu lectura</h2>
       <p id="cargando-lectura" class="cargando" hidden>Canalizando la lectura…</p>
       <div id="texto-resultado" class="texto-resultado"></div>
+
+      <div id="seguimiento" class="seguimiento" hidden>
+        <div id="hilo-conversacion" class="hilo-conversacion"></div>
+
+        <form id="form-seguimiento">
+          <textarea id="input-seguimiento" rows="2" placeholder="¿Querés preguntarle algo más a la lectora sobre esta misma tirada?"></textarea>
+          <button type="submit">Preguntar</button>
+        </form>
+        <p id="cargando-seguimiento" class="cargando" hidden>Escuchando las cartas de nuevo…</p>
+
+        <button id="btn-sugerir-tirada-adicional" type="button" class="btn-secundario">Sugerime otra tirada para profundizar en este tema</button>
+        <p id="cargando-sugerencia" class="cargando" hidden>Pensando qué tirada te serviría…</p>
+
+        <div id="tirada-adicional" class="tirada-adicional" hidden>
+          <h3 id="titulo-tirada-adicional"></h3>
+
+          <div class="foto-tirada">
+            <p class="ayuda-foto">¿Preferís sacarle una foto a esta tirada en vez de elegir carta por carta?</p>
+            <input type="file" id="input-foto-tirada-adicional" accept="image/*" capture="environment" />
+            <button type="button" id="btn-identificar-foto-adicional" class="btn-secundario">Identificar cartas de la foto</button>
+            <p id="cargando-foto-adicional" class="cargando" hidden>Mirando tu tirada…</p>
+          </div>
+
+          <div id="posiciones-tirada-adicional"></div>
+          <button id="btn-interpretar-tirada-adicional" type="button">Interpretar esta tirada</button>
+          <p id="cargando-tirada-adicional" class="cargando" hidden>Canalizando esta nueva tirada…</p>
+        </div>
+      </div>
+
       <div class="acciones-resultado">
-        <button id="btn-nueva-pregunta">Hacer otra pregunta</button>
+        <button id="btn-nueva-pregunta">Hacer otra pregunta (tema distinto)</button>
       </div>
     </section>
 

@@ -328,6 +328,113 @@ button:disabled {
   padding: 1rem;
 }
 
+.modal[hidden] {
+  display: none;
+}
+
+/* Seguimiento de la conversación */
+
+.seguimiento {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--borde);
+}
+
+.hilo-conversacion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.mensaje-usuario,
+.mensaje-asistente {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.mensaje-usuario {
+  background: var(--fondo-input);
+  align-self: flex-end;
+  max-width: 85%;
+}
+
+.mensaje-asistente {
+  background: var(--fondo-panel);
+  border: 1px solid var(--borde);
+}
+
+.mensaje-tirada-etiqueta {
+  color: var(--dorado);
+  font-style: italic;
+  font-size: 0.85rem;
+  margin: 0.4rem 0;
+}
+
+#form-seguimiento {
+  flex-direction: row;
+  gap: 0.6rem;
+}
+
+#form-seguimiento textarea {
+  flex: 1;
+  margin: 0;
+}
+
+#form-seguimiento button {
+  margin-top: 0;
+  align-self: flex-end;
+}
+
+.btn-secundario {
+  margin-top: 1.2rem;
+  background: transparent;
+  color: var(--dorado);
+  border: 1px solid var(--dorado);
+}
+
+.btn-secundario:hover {
+  box-shadow: none;
+  background: rgba(217, 184, 114, 0.1);
+}
+
+.tirada-adicional {
+  margin-top: 1.2rem;
+  padding: 1.2rem;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  background: var(--fondo-input);
+}
+
+/* Foto de la tirada */
+
+.foto-tirada {
+  margin: 1rem 0 1.5rem;
+  padding: 1rem;
+  border: 1px dashed var(--borde);
+  border-radius: 10px;
+}
+
+.ayuda-foto {
+  color: var(--texto-tenue);
+  font-size: 0.9rem;
+  margin: 0 0 0.7rem;
+}
+
+.foto-tirada input[type='file'] {
+  display: block;
+  color: var(--texto-tenue);
+  font-size: 0.85rem;
+  margin-bottom: 0.7rem;
+  width: 100%;
+}
+
+.foto-tirada .btn-secundario {
+  margin-top: 0;
+}
+
 .modal-contenido {
   background: var(--fondo-panel);
   border: 1px solid var(--borde);
@@ -364,7 +471,4 @@ button:disabled {
 @media (max-width: 480px) {
   .encabezado h1 { font-size: 1.5rem; }
   .paso { padding: 1.4rem; }
-}
-.modal[hidden] {
-  display: none;
 }
