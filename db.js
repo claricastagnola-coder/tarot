@@ -21,6 +21,15 @@ db.exec(`
     interpretacion TEXT,
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
   );
+
+  CREATE TABLE IF NOT EXISTS mensajes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    lectura_id INTEGER NOT NULL REFERENCES lecturas(id),
+    rol TEXT NOT NULL CHECK (rol IN ('user', 'assistant')),
+    contenido TEXT NOT NULL,
+    tirada_json TEXT,
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+  );
 `);
 
 module.exports = db;
